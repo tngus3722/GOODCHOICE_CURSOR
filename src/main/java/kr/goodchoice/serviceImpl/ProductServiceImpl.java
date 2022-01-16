@@ -37,7 +37,7 @@ public class ProductServiceImpl implements ProductService {
         return new BaseCursorResponse<ProductResponse>(productResponses, cursorCriteria, basePoint + "product");
     }
 
-    @Transactional(readOnly = true)
+    @Transactional
     @Override
     public ProductEntity getLockedProductEntityById(Long productId) {
         Optional<ProductEntity> optionalProductEntity = productRepository.findByIdLock(productId);
