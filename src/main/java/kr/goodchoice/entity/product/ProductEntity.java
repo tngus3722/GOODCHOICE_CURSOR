@@ -1,9 +1,11 @@
 package kr.goodchoice.entity.product;
 
+import kr.goodchoice.domain.request.ProductRequest;
 import kr.goodchoice.entity.BaseEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.apache.commons.lang.StringUtils;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
@@ -29,6 +31,13 @@ public class ProductEntity extends BaseEntity {
     @Basic
     @Column(name = "product_remains")
     private Integer productRemains;
+
+    public void update(ProductRequest productRequest) {
+        if (!StringUtils.isEmpty(productRequest.getProductName()))
+            this.productName = productRequest.getProductName();
+        if (productRequest.getProductPrice() != null)
+            this.productPrice = productRequest.getProductPrice();
+    }
 
     public void diffRemains(Integer count) {
         this.productRemains -= count;

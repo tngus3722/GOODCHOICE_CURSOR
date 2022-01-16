@@ -1,5 +1,6 @@
 package kr.goodchoice.service.product;
 
+import kr.goodchoice.domain.request.ProductRequest;
 import kr.goodchoice.domain.response.BaseOffsetResponse;
 import kr.goodchoice.domain.page.OffsetCriteria;
 import kr.goodchoice.domain.response.product.ProductOrderResponse;
