@@ -13,7 +13,9 @@ import kr.goodchoice.repository.product.support.ProductRepositorySupport;
 import kr.goodchoice.service.product.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.Caching;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -49,6 +51,10 @@ public class ProductServiceImpl implements ProductService {
         return new BaseCursorResponse<ProductResponse>(productResponses, cursorCriteria, basePoint + "product");
     }
 
+    @Caching(evict = {
+            @CacheEvict(value = "/product", allEntries = true),
+            @CacheEvict(value = "/product-detail", key = "#productId")
+    })
     @Transactional
     @Override
     public ProductResponse putProduct(Long productId, ProductRequest productRequest) {
