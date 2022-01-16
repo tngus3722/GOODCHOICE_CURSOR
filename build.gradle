@@ -45,6 +45,8 @@ dependencies {
     implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
     // QueryDSL
     implementation 'com.querydsl:querydsl-jpa'
+    // redis
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis';
 }
 
 // queryDSL이 생성하는 QClass 경로 설정

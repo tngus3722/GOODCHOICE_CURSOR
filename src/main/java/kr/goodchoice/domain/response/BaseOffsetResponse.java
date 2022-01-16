@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
@@ -19,7 +20,7 @@ public class BaseOffsetResponse<T> {
 
     public BaseOffsetResponse(List<T> response, OffsetCriteria offsetCriteria, String endpoint) {
         if (response.size() == offsetCriteria.getLimit() + 1) {
-            this.response = response.subList(0, offsetCriteria.getLimit());
+            this.response = new ArrayList<>(response.subList(0, offsetCriteria.getLimit()));
             this.next = offsetCriteria.getNextOffset(endpoint);
         } else
             this.response = response;

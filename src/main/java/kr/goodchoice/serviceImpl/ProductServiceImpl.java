@@ -13,6 +13,7 @@ import kr.goodchoice.repository.product.support.ProductRepositorySupport;
 import kr.goodchoice.service.product.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -32,6 +33,12 @@ public class ProductServiceImpl implements ProductService {
     private String basePoint;
     @PersistenceContext
     private EntityManager entityManager;
+
+    @Cacheable(value = "/product",
+            key = "#cursorCriteria.getCursor()" +
+                    ".concat(':').concat(#cursorCriteria.getLimit().toString())" +
+                    ".concat(':').concat(#cursorCriteria.getOrder())" +
+                    ".concat(':').concat(#cursorCriteria.getSortBy())", cacheManager = "cacheManager")
 
     @Transactional(readOnly = true)
     @Override
@@ -56,7 +63,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public ProductEntity getProductEntityById(Long productId) {
         Optional<ProductEntity> optionalProductEntity = productRepository.findById(productId);
-        if(optionalProductEntity.isEmpty())
+        if (optionalProductEntity.isEmpty())
             throw new RequestInputException(ErrorMessage.PRODUCT_NOT_EXIST_EXCEPTION, false);
         return optionalProductEntity.get();
     }

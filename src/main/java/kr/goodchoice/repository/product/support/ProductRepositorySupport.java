@@ -55,7 +55,7 @@ public class ProductRepositorySupport extends QuerydslRepositorySupport {
     private BooleanBuilder getBooleanBuilderByCursor(QProductEntity qProductEntity, CursorCriteria cursorCriteria) {
 
         String cursor = cursorCriteria.getCursor();
-        if (StringUtils.isEmpty(cursor))
+        if (StringUtils.equals("init",cursor))
             return null; // null 은 where절에서 자동으로 제외된다.
 
         String[] cursorParsed = new String(Base64.decodeBase64(cursorCriteria.getCursor())).split(" ");

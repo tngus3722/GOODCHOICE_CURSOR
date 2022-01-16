@@ -10,7 +10,7 @@ import java.util.List;
 @Setter
 @Getter
 public class CursorCriteria extends BaseCriteria {
-    private String cursor = null;
+    private String cursor = "init";
 
     public <T extends CustomPageable> String getNextCursor(String endPoint, List<T> responseList) {
         return this

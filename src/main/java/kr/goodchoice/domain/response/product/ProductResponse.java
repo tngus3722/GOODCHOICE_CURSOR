@@ -2,6 +2,10 @@ package kr.goodchoice.domain.response.product;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import kr.goodchoice.domain.page.CustomPageable;
 import kr.goodchoice.domain.page.CursorCriteria;
 import lombok.Getter;
@@ -21,7 +25,11 @@ public class ProductResponse implements CustomPageable {
     private String productName;
     private Integer productPrice;
     private Integer productRemains;
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
     private LocalDateTime createdAt;
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
     private LocalDateTime updatedAt;
     @JsonIgnore
     private String cursor;
