@@ -1,0 +1,17 @@
+INSERT INTO product(id, product_name, product_price, product_remains) VALUES(768848,'[STANLEY] GO CERAMIVAC 진공 텀블러/보틀 3종',21000,45);
+INSERT INTO product(id, product_name, product_price, product_remains) VALUES(748943,'디오디너리 데일리 세트 (Daily set)',21000,89);
+INSERT INTO product(id, product_name, product_price, product_remains) VALUES(779989,'버드와이저 HOME DJing 굿즈 세트',21000,43);
+INSERT INTO product(id, product_name, product_price, product_remains) VALUES(779943,'Fabrik Pottery Flat Cup & Saucer - Mint',21000,89);
+INSERT INTO product(id, product_name, product_price, product_remains) VALUES(768110,'네페라 손 세정제 대용량 500ml 이더블유지',21000,79);
+INSERT INTO product(id, product_name, product_price, product_remains) VALUES(517643,'에어팟프로 AirPods PRO 블루투스 이어폰(MWP22KH/A)',21000,26);
+INSERT INTO product(id, product_name, product_price, product_remains) VALUES(706803,'ZEROVITY™ Flip Flop Cream 2.0 (Z-FF-CRAJ-)',21000,81);
+INSERT INTO product(id, product_name, product_price, product_remains) VALUES(759928,'마스크 스트랩 분실방지 오염방지 목걸이',21000,85);
+INSERT INTO product(id, product_name, product_price, product_remains) VALUES(213341,'20SS 오픈 카라/투 버튼 피케 티셔츠 (6color)',21000,99);
+INSERT INTO product(id, product_name, product_price, product_remains) VALUES(744775,'SHUT UP [TK00112]',21000,35);
+INSERT INTO product(id, product_name, product_price, product_remains) VALUES(779049,'[리퍼브/키친마켓] Fabrik Pottery Cup, Saucer (단품)',21000,64);
+INSERT INTO product(id, product_name, product_price, product_remains) VALUES(611019,'플루크 new 피그먼트 오버핏 반팔티셔츠 FST701 / 7color M',21000,7);
+INSERT INTO product(id, product_name, product_price, product_remains) VALUES(628066,'무설탕 프로틴 초콜릿 틴볼스',21000,8);
+INSERT INTO product(id, product_name, product_price, product_remains) VALUES(782858,'폴로 랄프로렌 남성 수영복반바지 컬렉션 (51color)',39500,50);
+INSERT INTO product(id, product_name, product_price, product_remains) VALUES(760709,'파버카스텔 연필1자루',200,70);
+INSERT INTO product(id, product_name, product_price, product_remains) VALUES(778422,'캠핑덕 우드롤테이블',45000,7);
+INSERT INTO product(id, product_name, product_price, product_remains) VALUES(648418,'BS 02-2A DAYPACK 26 (BLACK)',238000,5);
