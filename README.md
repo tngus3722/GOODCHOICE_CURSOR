@@ -9,8 +9,8 @@
 
 ## 1. git clone
 ```
-git clone https://github.com/tngus3722/29CM_PRODUCT.git
-cd 29CM_PRODUCT
+git clone https://github.com/tngus3722/GOODCHOICE_CURSOR.git
+cd GOODCHOICE_CURSOR
 ```
 
 ## 2. build jar
