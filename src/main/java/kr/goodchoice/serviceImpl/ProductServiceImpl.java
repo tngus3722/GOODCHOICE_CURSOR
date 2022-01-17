@@ -41,7 +41,6 @@ public class ProductServiceImpl implements ProductService {
                     ".concat(':').concat(#cursorCriteria.getLimit().toString())" +
                     ".concat(':').concat(#cursorCriteria.getOrder())" +
                     ".concat(':').concat(#cursorCriteria.getSortBy())", cacheManager = "cacheManager")
-
     @Transactional(readOnly = true)
     @Override
     public BaseCursorResponse<ProductResponse> getProducts(CursorCriteria cursorCriteria) {

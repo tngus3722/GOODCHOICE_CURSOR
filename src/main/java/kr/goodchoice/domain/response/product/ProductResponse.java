@@ -8,6 +8,7 @@ import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import kr.goodchoice.domain.page.CustomPageable;
 import kr.goodchoice.domain.page.CursorCriteria;
+import kr.goodchoice.domain.response.BaseResponse;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,17 +21,11 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Setter
 @Getter
-public class ProductResponse implements CustomPageable {
+public class ProductResponse extends BaseResponse implements CustomPageable {
     private Long productId;
     private String productName;
     private Integer productPrice;
     private Integer productRemains;
-    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
-    @JsonSerialize(using = LocalDateTimeSerializer.class)
-    private LocalDateTime createdAt;
-    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
-    @JsonSerialize(using = LocalDateTimeSerializer.class)
-    private LocalDateTime updatedAt;
     @JsonIgnore
     private String cursor;
 
