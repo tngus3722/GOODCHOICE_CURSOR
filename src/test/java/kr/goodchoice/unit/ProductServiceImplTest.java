@@ -28,7 +28,9 @@ public class ProductServiceImplTest {
 
     @Test
     public void getProduct() {
-        //given
+        // given for target
+        CursorCriteria cursorCriteria = new CursorCriteria();
+        //given for mock
         List<ProductEntity> productEntities = new ArrayList<>();
         ProductEntity productEntity = new ProductEntity();
         productEntity.setId(782858L);
@@ -36,7 +38,6 @@ public class ProductServiceImplTest {
         productEntity.setProductPrice(39500);
         productEntity.setProductRemains(50);
         productEntities.add(productEntity);
-        CursorCriteria cursorCriteria = new CursorCriteria();
         //mocking
         given(productRepositorySupport.findByCursorCriteria(cursorCriteria)).willReturn(productEntities);
         //when
