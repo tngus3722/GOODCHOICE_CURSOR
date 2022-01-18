@@ -21,6 +21,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -36,6 +38,8 @@ public class ProductOrderServiceImpl implements ProductOrderService {
     private final ProductOrderItemRepository productOrderItemRepository;
     @Value("${server.base.point}")
     private String basePoint;
+    @PersistenceContext
+    private EntityManager entityManager;
 
     @Transactional(readOnly = true)
     @Override
@@ -64,7 +68,10 @@ public class ProductOrderServiceImpl implements ProductOrderService {
         productOrderRepository.save(productOrderEntity);
         productOrderItemRepository.save(productOrderItem);
 
-        return ProductOrderMapper.INSTANCE.toProductOrderResponse(productOrderEntity);
+        entityManager.flush();
+        entityManager.clear();
+
+        return ProductOrderMapper.INSTANCE.toProductOrderResponse(this.getProductOrderEntity(productOrderEntity.getId()));
     }
 
     @Transactional
