@@ -22,7 +22,11 @@ public class BaseCursorResponse<T extends CustomPageable> {
     public BaseCursorResponse(List<T> response, CursorCriteria cursorCriteria, String endPoint) {
         if (response.size() == cursorCriteria.getLimit() + 1) {
             this.response = new ArrayList<>(response.subList(0, cursorCriteria.getLimit()));
-            this.next = cursorCriteria.getNextCursor(endPoint, response);
+            this.next = cursorCriteria
+                    .getNextUrlBase(endPoint)
+                    .append("&cursor=")
+                    .append(response.get(response.size() - 2).getCursor(cursorCriteria))
+                    .toString();
         } else
             this.response = response;
     }

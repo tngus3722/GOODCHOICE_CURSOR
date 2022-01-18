@@ -34,7 +34,7 @@ public class ProductRepositorySupport extends QuerydslRepositorySupport {
         return jpaQueryFactory.selectFrom(qProductEntity)
                 .orderBy(orderSpecifier)
                 .orderBy(qProductEntity.id.desc())
-                .limit(offsetCriteria.getLimit()+1)
+                .limit(offsetCriteria.getLimit() + 1)
                 .offset(offsetCriteria.getOffset())
                 .fetch();
     }
@@ -55,7 +55,7 @@ public class ProductRepositorySupport extends QuerydslRepositorySupport {
     private BooleanBuilder getBooleanBuilderByCursor(QProductEntity qProductEntity, CursorCriteria cursorCriteria) {
 
         String cursor = cursorCriteria.getCursor();
-        if (StringUtils.equals("init",cursor))
+        if (StringUtils.equals("init", cursor))
             return null; // null 은 where절에서 자동으로 제외된다.
 
         String[] cursorParsed = new String(Base64.decodeBase64(cursorCriteria.getCursor())).split(" ");
