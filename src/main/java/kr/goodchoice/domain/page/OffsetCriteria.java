@@ -22,11 +22,4 @@ public class OffsetCriteria extends BaseCriteria {
         else
             return this.page * this.limit;
     }
-
-    public String getNextOffset(String endPoint) {
-        return this
-                .getNextUrlBase(endPoint)
-                .append("&page=").append(this.getPage() + 1)
-                .toString();
-    }
 }
